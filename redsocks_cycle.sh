@@ -30,7 +30,8 @@ redsocks {
         // password = "baz";
 }
 EOF
-
+iptables -t nat -F OUTPUT
 iptables -t nat -I OUTPUT -p tcp -m owner --uid-owner root -j REDIRECT --to-port 1080
+systemctl restart redsocks.service
 sleep 30
 done
