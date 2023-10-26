@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "net.ipv4.ip_forward = 1" > /etc/sysctl.conf
+sysctl -p
 while true
 do
 proxy_sum=$(cat proxy-list.sh | wc -l)
