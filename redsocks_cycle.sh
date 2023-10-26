@@ -36,5 +36,5 @@ iptables -t nat -F OUTPUT
 iptables -t nat -I OUTPUT -p tcp -m owner --uid-owner root -j REDIRECT --to-port 1080
 systemctl restart redsocks.service
 echo $proxy_ip
-sleep 30
+sleep 24h
 done
