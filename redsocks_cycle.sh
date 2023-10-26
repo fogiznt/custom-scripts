@@ -7,6 +7,8 @@ proxy=$(sed -n $proxy_num'p' proxy-list.sh)
 
 proxy_ip=$(echo ${proxy//:/ } | awk '{print $1}')
 proxy_port=$(echo ${proxy//:/ } | awk '{print $2}')
+proxy_user=$(echo ${proxy//:/ } | awk '{print $3}')
+proxy_password=$(echo ${proxy//:/ } | awk '{print $4}')
 
 cat >/etc/redsocks.conf <<EOF
 base {
@@ -26,8 +28,8 @@ redsocks {
         port = $proxy_port;
         type = socks5;
 
-        // login = "foobar";
-        // password = "baz";
+        login = "$proxy_user";
+        password = "$proxy_password";
 }
 EOF
 iptables -t nat -F OUTPUT
