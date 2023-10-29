@@ -4,6 +4,7 @@ sysctl -p
 while true
 do
 rm -rf ipvanish/*
+rm -rf configs.zip*
 wget https://configs.ipvanish.com/configs/configs.zip
 unzip -d ipvanish/ configs.zip
 rm -f /etc/openvpn/ca.ipvanish.com.crt
