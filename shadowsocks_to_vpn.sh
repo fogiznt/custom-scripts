@@ -6,7 +6,7 @@ do
 rm -rf ipvanish/*
 rm -rf configs.zip*
 wget https://configs.ipvanish.com/configs/configs.zip
-unzip -d ipvanish/ configs.zip
+unzip -d ipvanish/ configs.zip > /dev/null
 rm -f /etc/openvpn/ca.ipvanish.com.crt
 cp ipvanish/ca.ipvanish.com.crt /etc/openvpn/
 
