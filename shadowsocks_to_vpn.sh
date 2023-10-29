@@ -18,6 +18,7 @@ sed -i '/auth-user-pass/d' /etc/openvpn/client.conf
 echo "route 0.0.0.0 128.0.0.0 net_gateway" >> /etc/openvpn/client.conf
 echo "route 128.0.0.0 128.0.0.0 net_gateway" >> /etc/openvpn/client.conf
 echo "auth-user-pass pass.txt" >> /etc/openvpn/client.conf
+echo "selected vpn - " $vpn
 systemctl restart openvpn@client.service
 sleep 10s
 echo "create routing"
